@@ -37,35 +37,37 @@ export default function App() {
         <AuthProvider>
           <ToastProvider>
             <ThemeInit>
-              <Routes>
-                {/* Public */}
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/invite/:token" element={<InvitePage />} />
+              <div className='select-none'>
+                <Routes>
+                  {/* Public */}
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/invite/:token" element={<InvitePage />} />
 
-                {/* Auth routes (redirect if logged in) */}
-                <Route element={<PublicRoute />}>
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/signup" element={<SignupPage />} />
-                </Route>
-
-                {/* Protected routes */}
-                <Route element={<ProtectedRoute />}>
-                  <Route element={<AppLayout />}>
-                    <Route path="/dashboard" element={<DashboardPage />} />
-                    <Route path="/projects" element={<ProjectsPage />} />
-                    <Route path="/projects/:id" element={<ProjectDetailPage />} />
-                    <Route path="/projects/:id/execution" element={<ExecutionPlannerPage />} />
-                    <Route path="/projects/:id/simulate" element={<SimulationPage />} />
-                    <Route path="/activity" element={<ActivityPage />} />
-                    {/* <Route path="/settings" element={<SettingsPage />} /> */}
-                    <Route path="/profile" element={<ProfilePage />} />
+                  {/* Auth routes (redirect if logged in) */}
+                  <Route element={<PublicRoute />}>
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/signup" element={<SignupPage />} />
                   </Route>
-                </Route>
 
-                {/* Fallbacks */}
-                <Route path="/404" element={<NotFoundPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
+                  {/* Protected routes */}
+                  <Route element={<ProtectedRoute />}>
+                    <Route element={<AppLayout />}>
+                      <Route path="/dashboard" element={<DashboardPage />} />
+                      <Route path="/projects" element={<ProjectsPage />} />
+                      <Route path="/projects/:id" element={<ProjectDetailPage />} />
+                      <Route path="/projects/:id/execution" element={<ExecutionPlannerPage />} />
+                      <Route path="/projects/:id/simulate" element={<SimulationPage />} />
+                      <Route path="/activity" element={<ActivityPage />} />
+                      {/* <Route path="/settings" element={<SettingsPage />} /> */}
+                      <Route path="/profile" element={<ProfilePage />} />
+                    </Route>
+                  </Route>
+
+                  {/* Fallbacks */}
+                  <Route path="/404" element={<NotFoundPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </div>
             </ThemeInit>
           </ToastProvider>
         </AuthProvider>
