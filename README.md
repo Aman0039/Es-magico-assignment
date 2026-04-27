@@ -80,48 +80,8 @@ cd ../frontend
 npm install
 cp .env.example .env
 # Edit .env with your API URL
-```
 
-### 2. Configure Environment Variables
-
-**Backend `.env`:**
-```
-PORT=5000
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/cwos
-JWT_SECRET=your_super_secret_key_change_this
-JWT_EXPIRES_IN=7d
-INVITE_TOKEN_SECRET=your_invite_secret_change_this
-CLIENT_URL=http://localhost:5173
-NODE_ENV=development
-```
-
-**Frontend `.env`:**
-```
-VITE_API_URL=http://localhost:5000/api
-VITE_SOCKET_URL=http://localhost:5000
-```
-
-### 3. Run Development Servers
-
-```bash
-# Terminal 1 — Backend
-cd backend
-npm run dev
-
-# Terminal 2 — Frontend
-cd frontend
-npm run dev
-```
-
-Frontend runs at: `http://localhost:5173`  
-Backend runs at: `http://localhost:5000`
-
-### 4. Run Tests
-
-```bash
-cd backend
-npm test
-```
+[Deployed Link] https://workflow-esmaggico.vercel.app  
 
 ---
 
