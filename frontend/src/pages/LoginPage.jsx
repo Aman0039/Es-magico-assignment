@@ -97,6 +97,7 @@ export const LoginPage = () => {
                     required: 'Email is required',
                     pattern: { value: /^\S+@\S+\.\S+$/, message: 'Enter a valid email' }
                   })}
+                  defaultValue={"test@gmail.com"}
                   type="email"
                   placeholder="you@example.com"
                   autoComplete="email"
@@ -113,6 +114,7 @@ export const LoginPage = () => {
                 <input
                   {...register('password', { required: 'Password is required' })}
                   type={showPass ? 'text' : 'password'}
+                  defaultValue={"123456"}
                   placeholder="••••••••"
                   autoComplete="current-password"
                   className="cwos-input pl-9 pr-10"
