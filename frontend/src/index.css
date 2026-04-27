@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 224 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 20% 12%;
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 15% 95%;
+    --secondary-foreground: 224 20% 25%;
+    --muted: 224 12% 94%;
+    --muted-foreground: 224 10% 52%;
+    --accent: 243 75% 97%;
+    --accent-foreground: 243 75% 35%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 15% 90%;
+    --input: 224 15% 90%;
+    --ring: 243 75% 59%;
+    --radius: 0.625rem;
+    
+    /* Custom CWOS tokens */
+    --cwos-indigo: 243 75% 59%;
+    --cwos-violet: 263 70% 58%;
+    --cwos-cyan: 194 95% 43%;
+    --cwos-emerald: 152 80% 35%;
+    --cwos-amber: 38 95% 50%;
+    --cwos-rose: 350 89% 60%;
+    
+    --sidebar-bg: 224 25% 8%;
+    --sidebar-border: 224 20% 15%;
+    --sidebar-text: 224 15% 75%;
+    --sidebar-text-active: 0 0% 100%;
+    --sidebar-accent: 243 75% 59%;
+  }
+
+  .dark {
+    --background: 224 20% 7%;
+    --foreground: 224 10% 95%;
+    --card: 224 18% 10%;
+    --card-foreground: 224 10% 95%;
+    --popover: 224 18% 10%;
+    --popover-foreground: 224 10% 95%;
+    --primary: 243 75% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 18% 15%;
+    --secondary-foreground: 224 10% 85%;
+    --muted: 224 18% 14%;
+    --muted-foreground: 224 10% 55%;
+    --accent: 243 40% 18%;
+    --accent-foreground: 243 75% 75%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 18% 18%;
+    --input: 224 18% 18%;
+    --ring: 243 75% 65%;
+    
+    --sidebar-bg: 224 25% 5%;
+    --sidebar-border: 224 20% 12%;
+    --sidebar-text: 224 15% 65%;
+    --sidebar-text-active: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer components {
+  .cwos-sidebar {
+    background: hsl(var(--sidebar-bg));
+    border-right: 1px solid hsl(var(--sidebar-border));
+  }
+  
+  .cwos-card {
+    @apply bg-card rounded-xl border border-border shadow-sm;
+  }
+  
+  .cwos-input {
+    @apply w-full px-3 py-2 rounded-lg border border-input bg-background text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all;
+  }
+  
+  .status-pending { @apply bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-800/50; }
+  .status-running { @apply bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/30 dark:text-blue-400 dark:border-blue-800/50; }
+  .status-completed { @apply bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-800/50; }
+  .status-failed { @apply bg-red-50 text-red-700 border-red-200 dark:bg-red-950/30 dark:text-red-400 dark:border-red-800/50; }
+  .status-blocked { @apply bg-gray-50 text-gray-600 border-gray-200 dark:bg-gray-900/30 dark:text-gray-400 dark:border-gray-700/50; }
+
+  .priority-1 { @apply text-gray-500; }
+  .priority-2 { @apply text-sky-500; }
+  .priority-3 { @apply text-amber-500; }
+  .priority-4 { @apply text-orange-500; }
+  .priority-5 { @apply text-rose-600; }
+
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+    background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--border)) 50%, hsl(var(--muted)) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+}
